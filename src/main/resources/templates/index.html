@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인페이지</title>
+    <link rel="icon" href="/img/favicon.ico">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <h2>카카오톡 로그인</h2>
+    <img id="kakaoLogin" src="/img/kakao_login_large_narrow.png" >
+</div>
+    <script>
+       // $("#kakaoLogin").on("click", function() {
+        $("#kakaoLogin").click( function() {
+            $.ajax({
+                url: "/auth/kakao/callback",
+                method: "GET",
+                success: function(data) {
+                    window.location.href = data;
+                },
+                error: function(data) {
+                    alert("카카오 로그인으로 이동하는데 문제가 발생했습니다.");
+                }
+            })
+        })
+        // ajax 로 get url 연결 스크립트 작성
+        // Kakao Dev application name = MyApp
+        // WEB URI =            http://localhost:8085/
+        // Redirect URI =      /login/oauth2/code/kakao
+
+        // 필수 동의 항목 프로필정보(닉네임) 이름 이메일
+        // 추가 동의 항목 프로필 사진 성별
+
+    </script>
+
+
+</body>
+</html>
